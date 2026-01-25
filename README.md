@@ -64,22 +64,25 @@ That's it! Your AI assistant now has 251 specialized skills. 🎉
 
 ---
 
-## 🔌 Compatibility
+## 🔌 Compatibility & Invocation
 
-These skills follow the universal **SKILL.md** format and work with any AI coding assistant that supports agentic skills:
+These skills follow the universal **SKILL.md** format and work with any AI coding assistant that supports agentic skills.
 
-| Tool                | Type      | Compatibility | Installation Path                        |
-| ------------------- | --------- | ------------- | ---------------------------------------- |
-| **Claude Code**     | CLI       | ✅ Full       | `.claude/skills/` or `.agent/skills/`    |
-| **Gemini CLI**      | CLI       | ✅ Full       | `.gemini/skills/` or `.agent/skills/`    |
-| **Codex CLI**       | CLI       | ✅ Full       | `.codex/skills/` or `.agent/skills/`     |
-| **Antigravity IDE** | IDE       | ✅ Full       | `.agent/skills/`                         |
-| **Cursor**          | IDE       | ✅ Full       | `.cursor/skills/` or project root        |
-| **GitHub Copilot**  | Extension | ⚠️ Partial    | Copy skill content to `.github/copilot/` |
-| **OpenCode**        | CLI       | ✅ Full       | `.opencode/skills/` or `.claude/skills/` |
+| Tool            | Type | Invocation Example                | Path              |
+| :-------------- | :--- | :-------------------------------- | :---------------- |
+| **Claude Code** | CLI  | `>> /skill-name help me...`       | `.claude/skills/` |
+| **Gemini CLI**  | CLI  | `(User Prompt) Use skill-name...` | `.gemini/skills/` |
+| **Antigravity** | IDE  | `(Agent Mode) Use skill...`       | `.agent/skills/`  |
+| **Cursor**      | IDE  | `@skill-name (in Chat)`           | `.cursor/skills/` |
+| **Copilot**     | Ext  | `(Paste content manually)`        | N/A               |
 
 > [!TIP]
-> Most tools auto-discover skills in `.agent/skills/`. For maximum compatibility, clone to this directory.
+> **Universal Path**: We recommend cloning to `.agent/skills/`. Most modern tools (Antigravity, recent CLIs) look here by default.
+
+> [!WARNING]
+> **Windows Users**: This repository uses **symlinks** for official skills.
+> You must enable Developer Mode or run Git as Administrator:
+> `git clone -c core.symlinks=true https://github.com/...`
 
 ---
 
