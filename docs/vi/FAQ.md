@@ -15,7 +15,7 @@ Skills thực chất là các file hướng dẫn chuyên biệt dùng để d�
 
 **Không hề!** Khi bạn clone cái kho này về, toàn bộ skills sẽ nằm sẵn trong máy, NHƯNG AI của bạn chỉ thực sự đọc và load kỹ năng nào mà bạn gọi tên (bằng lệnh `@tên-skill`) thôi.
 Nó giống như một thư viện sách: sách thì đầy trên kệ, nhưng bạn chỉ cần rút đúng cuốn bạn định đọc.
-**Mẹo:** Dùng các [Gói Khởi Điểm (Starter Packs)](docs/BUNDLES.vi.md) để cài bộ phù hợp với công việc của bạn cho gọn.
+**Mẹo:** Dùng các [Gói Khởi Điểm (Starter Packs)](../BUNDLES.vi.md) để cài bộ phù hợp với công việc của bạn cho gọn.
 
 ### Những công cụ AI nào dùng được mấy skill này?
 

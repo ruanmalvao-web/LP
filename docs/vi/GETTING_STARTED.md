@@ -31,7 +31,7 @@ git clone https://github.com/sickn33/antigravity-awesome-skills.git .agent/skill
 
 ### 2. Chọn Gói phù hợp với Vai trò (Persona)
 
-Hãy tìm gói (Bundle) phù hợp nhất với công việc của bạn (xem chi tiết tại [docs/BUNDLES.vi.md](docs/BUNDLES.vi.md)):
+Hãy tìm gói (Bundle) phù hợp nhất với công việc của bạn (xem chi tiết tại [docs/BUNDLES.vi.md](../BUNDLES.vi.md)):
 
 | Vai Trò               | Tên Gói        | Gồm những gì?                                     |
 | :-------------------- | :------------- | :------------------------------------------------ |
@@ -105,6 +105,6 @@ _Xem [Danh sách đầy đủ](README.vi.md#danh-sách-skill-đầy-đủ-256256
 
 ## ⏭️ Bước tiếp theo
 
-1. [Xem chi tiết các Gói (Bundles)](docs/BUNDLES.vi.md)
-2. [Tham khảo các ví dụ thực tế](docs/EXAMPLES.vi.md)
+1. [Xem chi tiết các Gói (Bundles)](../BUNDLES.vi.md)
+2. [Tham khảo các ví dụ thực tế](../EXAMPLES.vi.md)
 3. [Đóng góp Skill cho cộng đồng](CONTRIBUTING.vi.md)
