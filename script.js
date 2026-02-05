@@ -99,6 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (announcementModal) {
         setTimeout(() => {
             announcementModal.style.display = 'flex';
+            // Auto-close after 5 seconds (5000ms)
+            setTimeout(hideAnnouncement, 5000);
         }, 800);
     }
 
