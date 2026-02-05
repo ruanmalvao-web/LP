@@ -63,7 +63,7 @@ img {
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 15px 0;
+    padding: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -79,6 +79,8 @@ img {
     width: auto;
     object-fit: contain;
     transition: var(--transition);
+    margin: 0;
+    display: block;
 }
 
 .footer-logo img {
