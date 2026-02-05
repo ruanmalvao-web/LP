@@ -13,15 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile Menu Toggle (Simplified for this demo)
+    // Mobile Menu Toggle
     const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
     const navList = document.querySelector('.nav-list');
 
     if (mobileMenuIcon) {
         mobileMenuIcon.addEventListener('click', () => {
-            // In a real production app we would toggle a class to show/hide the menu
-            // For this simple example, we'll just toggle display style or alert to user
-            // Let's implement a simple slide down toggler if needed
             const currentDisplay = window.getComputedStyle(navList).display;
             if (currentDisplay === 'none') {
                 navList.style.display = 'flex';
@@ -35,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 navList.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
             } else {
                 navList.style.display = 'none';
-                // Reset inline styles if going back to desktop is needed, media query handles normal desktop state
             }
         });
     }
@@ -46,48 +42,51 @@ document.addEventListener('DOMContentLoaded', () => {
         leadForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const userMessage = document.getElementById('message').value;
+            const submitBtn = leadForm.querySelector('.btn-submit');
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = 'Enviando...';
+            submitBtn.disabled = true;
 
-            // Construct Email message
-            const subject = encodeURIComponent(`Solicitação de Orçamento - ${name}`);
-            const body = encodeURIComponent(
-                `Nome: ${name}\n` +
-                `Telefone: ${phone}\n` +
-                `Serviço de Interesse: ${service}\n\n` +
-                `Mensagem:\n${userMessage}`
-            );
+            const formData = new FormData(leadForm);
 
-            // Open default email client
-            const mailtoUrl = `mailto:contato@grupolitoralseg.com.br?subject=${subject}&body=${body}`;
-            window.location.href = mailtoUrl;
-
-            // Show Success Modal
-            const modal = document.getElementById('successModal');
-            if (modal) {
-                modal.style.display = 'flex';
-            }
-
-            // Optional: clear form
-            leadForm.reset();
+            fetch('send-email.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const modal = document.getElementById('successModal');
+                        if (modal) {
+                            modal.style.display = 'flex';
+                        }
+                        leadForm.reset();
+                    } else {
+                        alert('Erro ao enviar: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Erro de conexão ao enviar o formulário.');
+                })
+                .finally(() => {
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                });
         });
     }
 
-    // Modal Close and Return to Home
+    // Modal Close
     const closeModal = document.getElementById('closeModal');
-    const modal = document.getElementById('successModal');
+    const successModal = document.getElementById('successModal');
 
-    if (closeModal && modal) {
+    if (closeModal && successModal) {
         closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            // Return to Home (scroll to top)
+            successModal.style.display = 'none';
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-            // Update URL to home without reloading
             history.pushState(null, null, '#home');
         });
     }
@@ -98,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeAnnouncementBtn = document.getElementById('closeAnnouncementBtn');
 
     if (announcementModal) {
-        // Show after a small delay for better entrance
         setTimeout(() => {
             announcementModal.style.display = 'flex';
         }, 800);
@@ -117,10 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
         closeAnnouncementBtn.addEventListener('click', hideAnnouncement);
     }
 
-    // Close modal if clicking outside the content
     window.addEventListener('click', (e) => {
         if (e.target === announcementModal) {
             hideAnnouncement();
+        }
+        if (e.target === successModal) {
+            successModal.style.display = 'none';
         }
     });
 });
