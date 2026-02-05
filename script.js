@@ -91,4 +91,36 @@ document.addEventListener('DOMContentLoaded', () => {
             history.pushState(null, null, '#home');
         });
     }
+
+    // Announcement Modal Logic
+    const announcementModal = document.getElementById('announcementModal');
+    const closeAnnouncement = document.getElementById('closeAnnouncement');
+    const closeAnnouncementBtn = document.getElementById('closeAnnouncementBtn');
+
+    if (announcementModal) {
+        // Show after a small delay for better entrance
+        setTimeout(() => {
+            announcementModal.style.display = 'flex';
+        }, 800);
+    }
+
+    const hideAnnouncement = () => {
+        if (announcementModal) {
+            announcementModal.style.display = 'none';
+        }
+    };
+
+    if (closeAnnouncement) {
+        closeAnnouncement.addEventListener('click', hideAnnouncement);
+    }
+    if (closeAnnouncementBtn) {
+        closeAnnouncementBtn.addEventListener('click', hideAnnouncement);
+    }
+
+    // Close modal if clicking outside the content
+    window.addEventListener('click', (e) => {
+        if (e.target === announcementModal) {
+            hideAnnouncement();
+        }
+    });
 });
