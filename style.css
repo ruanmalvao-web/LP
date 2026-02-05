@@ -72,21 +72,47 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0;
+    /* Removing horizontal padding as requested */
+}
+
+.logo {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 15px;
+    /* Espaçamento de 15px no topo solicitado */
+    margin-bottom: 5px;
+    /* Pequeno ajuste no rodapé do header para equilíbrio */
 }
 
 .logo img {
-    height: 250px;
+    height: 480px;
+    /* Zoom na área do logo */
     width: auto;
     object-fit: contain;
     transition: var(--transition);
-    margin: 0;
+    margin: -160px 0;
+    /* Centraliza a parte útil da imagem, removendo as bordas brancas */
     display: block;
 }
 
+.footer-logo {
+    height: 120px;
+    /* Desired visible height for footer logo */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
 .footer-logo img {
-    height: 150px;
+    height: 700px;
+    /* Large zoom to crop white space */
     width: auto;
     object-fit: contain;
+    margin: -240px 0;
+    /* Adjusting the crop */
 }
 
 .logo:hover img {

@@ -5,7 +5,12 @@ on:
     branches:
       - main
     paths:
-      - 'paraty-seguranca-lp/**'
+      - 'index.html'
+      - 'style.css'
+      - 'script.js'
+      - 'images/**'
+      - 'send-email.php'
+      - 'hero-new.png'
 
 jobs:
   web-deploy:
@@ -21,5 +26,26 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./paraty-seguranca-lp/
+          local-dir: ./
           server-dir: ./public_html/
+          exclude: |
+            **/.git*
+            **/.github*
+            **/skills/**
+            **/docs/**
+            **/scripts/**
+            **/data/**
+            **/bin/**
+            **/lib/**
+            **/node_modules/**
+            **/assets/**
+            CATALOG.md
+            README.md
+            CONTRIBUTING.md
+            CHANGELOG.md
+            LICENSE
+            SECURITY.md
+            package.json
+            package-lock.json
+            skills_index.json
+
