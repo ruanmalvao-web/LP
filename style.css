@@ -99,20 +99,20 @@ img {
 }
 
 .footer-logo {
-    height: 120px;
-    /* Desired visible height for footer logo */
+    height: 80px;
+    /* Increased height to avoid cropping text */
     display: flex;
     align-items: center;
     overflow: hidden;
 }
 
 .footer-logo img {
-    height: 700px;
-    /* Large zoom to crop white space */
+    height: 320px;
+    /* Precisely centered zoom */
     width: auto;
     object-fit: contain;
-    margin: -240px 0;
-    /* Adjusting the crop */
+    margin: -120px 0;
+    /* Centering the 80px slice (320-80)/2 */
 }
 
 .logo:hover img {
