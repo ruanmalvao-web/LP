@@ -98,21 +98,11 @@ img {
     display: block;
 }
 
-.footer-logo {
-    height: 50px;
-    /* Reduced height as requested */
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-
 .footer-logo img {
-    height: 200px;
-    /* Zoomed out to ensure text fits without being cut */
+    max-height: 80px;
     width: auto;
     object-fit: contain;
-    margin: -75px 0;
-    /* (200 - 50) / 2 = 75 for perfect centering */
+    display: block;
 }
 
 .logo:hover img {
@@ -567,7 +557,8 @@ img {
 .footer {
     background: #004d1f;
     /* Verde bem escuro para o rodapé */
-    padding: 40px 0;
+    padding: 20px 0;
+    /* Reduced padding to remove large external margins */
     border-top: none;
     color: white;
 }
@@ -581,10 +572,8 @@ img {
 }
 
 .footer-logo {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: white;
+    display: flex;
+    align-items: center;
 }
 
 .footer-logo span {
