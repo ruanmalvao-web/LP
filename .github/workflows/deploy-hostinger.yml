@@ -11,6 +11,7 @@ on:
       - 'images/**'
       - 'send-email.php'
       - 'hero-new.png'
+      - 'os/**'
 
 jobs:
   web-deploy:
